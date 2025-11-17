@@ -1,0 +1,15 @@
+﻿@model IEnumerable<ShowGroupViewModel>
+
+<ul class="dropdown-menu">
+	@foreach (var item in Model)
+	{
+		<li class="dropdown-item">
+			<a class="dropdown-item" href="/Group/@item.GroupId/@item.GroupName">
+				@item.GroupName
+			</a>
+			@*<span class="badge badge-badge-primary badge-pill">
+				@item.ProductCount
+			</span>*@
+		</li>
+	}
+</ul>

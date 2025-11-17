@@ -1,0 +1,35 @@
+﻿@page
+@model ItShop.Pages.Admin.IndexModel
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>لیست کالاها</h1>
+<hr/>
+<p>
+	<a href="/Admin/Add">افزودن کالا</a>
+</p>
+<table >
+	<thead>
+		<tr>
+			<th>تصویر</th>
+			<th>نام</th>
+			<th>قیمت</th>
+			<th>دستورات</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.Products)
+		{
+			<tr>
+			<td>image src="/images/@(item.Id).jpg"</td>
+			<td>@item.Name</td>
+			<td>@item.Item.price</td>
+			<td>
+				<a asp-page>ویرایش</a>
+				<a asp-page>حذف</a>
+			</td>
+			</tr>
+		}
+	</tbody>
+</table>

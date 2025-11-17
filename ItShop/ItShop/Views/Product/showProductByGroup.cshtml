@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = ViewData["GroupName"];
+}
+
+<h1>محصولات گروه @ViewData["GroupName"]</h1>
+<hr/>
+
+        <div class="row">
+            @foreach(var item in Model)
+            {
+                 <div class = "col-3">
+
+    <div class="card">
+
+                <img src="/images/@(item.Id).jpg" height = "160" width ="160"  class="Card-Img-top img-thumbnail" />
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @item.Name</h5
+                        <a asp-action="Detail" asp-controller="Home"   asp-asp-route="@item.Id">جزِیات محصول</a>
+                <a asp-action="Detail" asp-controller="Home" asp-route-id="@item.Id">جزییات محصول</a>
+                </div>
+            </div>
+        </div>        
+            }
+    
+        </div>
+

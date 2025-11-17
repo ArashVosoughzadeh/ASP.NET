@@ -1,0 +1,46 @@
+﻿@page
+@model ItShop.Pages.Admin.AddModel
+@{
+	ViewData["Title"] = "Add" ;
+}
+
+<h1>افزودن کالا</h1>
+<hr />
+<form method="post" enctype="multipart/form-data">
+	<dl class="dl-horizontal">
+		<dd><label asp-for="Name">
+			اسم
+		</label></dd>
+		<dt>
+			<input asp-for="Product.Name"/>
+			<span asp-validation-for="Product.Name"></span>
+		</dt>
+	</dl>
+
+	
+	<br/>
+	<label asp-for="Product.Description">
+		توضیحات
+	</label>
+	<textarea asp-for="Product.Description"></textarea>
+	<span asp-validation-for="Product.Description"></span>
+	<br/>
+	<label asp-for="Product.Price">
+		قیمت
+	</label>
+	<input asp-for="Product.Price"/>
+	<span asp-validation-for="Price"></span>
+	<br/>
+	<label asp-for="Product.Quantityinstock">
+		تعداد
+	</label>
+	<input asp-for="Product.Quantityinstock"/>
+	<span asp-validation-for="Product.QuantityInstock"></span>
+	<br/>
+	<label asp-for="Product.Pichure">
+		عکس 
+	</label>
+	<input asp-for="Product.Pichure"/>
+	<span asp-validation-for="Product.Pichure"></span>
+	<br/>
+	</form>

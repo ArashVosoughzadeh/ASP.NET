@@ -1,0 +1,42 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "سبدخرید";
+}
+
+@if (Model != null)
+{
+    <table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+        <th>کالا</th>
+        <th>تعداد</th>
+        <th>قیمت</th>
+        <th></th>
+        </tr>
+    </thead>
+
+   <tbody>
+        @foreach(var item in Model.OrderDetails)
+    {
+         <tr>
+        <td>
+            @item.Product.Name</td>
+        <td>
+            @item.count</td>
+        <td>
+            @(item.count * item.Price)</td>
+        <td>
+            <a asp-action="RemoveCart" asp-route-detailId="@item.DetailId">حذف</a>
+        </td>
+        </tr>
+    }
+   </tbody>
+
+</table>
+<h5>جمع کل : @Model.OrderDetails.Sum(s => s.count * s.Price)</h5>
+
+}
+else
+{
+    <div class = "alert alert-danger"></div>
+}

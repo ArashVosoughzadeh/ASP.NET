@@ -1,0 +1,5 @@
+﻿Build started...
+1>------ Build started: Project: ItShop, Configuration: Debug Any CPU ------
+1>N:\ASP.Net\ItShop\ItShop\Pages\Admin\Add.cshtml.cs(16,21,16,26): error CS0111: Type 'AddModel' already defines a member called 'OnGet' with the same parameter types
+1>Done building project "ItShop.csproj" -- FAILED.
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
