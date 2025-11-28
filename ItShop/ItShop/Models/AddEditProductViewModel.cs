@@ -4,7 +4,7 @@ namespace ItShop.Models
 {
     public class AddEditProductViewModel
     {
-               public int Id { get; set; }
+        public int Id { get; set; }
 
         [Display(Name="Name")]
         public string Name { get; set; }

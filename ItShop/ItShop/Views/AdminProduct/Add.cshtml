@@ -1,0 +1,59 @@
+﻿@page
+@model ItShop.Models.Product
+@{
+	ViewData["Title"] = "Add";
+}
+
+<h1>افزودن کالا</h1>
+<hr />
+<form method="post" enctype="multipart/form-data">
+	<dl class="dl-horizontal">
+		<dd>
+			<label asp-for="Name">
+				اسم
+			</label>
+		</dd>
+		<dt>
+			<input asp-for="Name" class="form-control"/>
+			<span asp-validation-for="Name"></span>
+		</dt>
+		<dd>
+			<label asp-for="Description">
+				توضیحات
+			</label>
+		</dd>
+		<dt>
+			<textarea asp-for="Description" class="form-control"></textarea>
+			<span asp-validation-for="Description"></span>
+		</dt>
+		<dd>
+			<label asp-for="Price">
+				قیمت
+			</label>
+		</dd>
+		<dt>
+			<input asp-for="Price" class="form-control"/>
+			<span asp-validation-for="Price"></span>
+		</dt>
+		<dd>
+			<label asp-for="Quantityinstock">
+				تعداد
+			</label>
+		</dd>
+		<dt>
+			<input asp-for="Quantityinstock" class="form-control"/>
+			<span asp-validation-for="QuantityInstock"></span>
+		</dt>
+		<dd>
+			<label asp-for="Picture">
+				عکس
+			</label>
+		</dd>
+		<dt>
+			<input asp-for="Picture" type="file" class="form-control"/>
+			<span asp-validation-for="Picture"></span>
+		</dt>
+	<dl/>
+
+	<input type="submit"  class = "bt" value="ثبت" />
+</form>

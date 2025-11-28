@@ -12,7 +12,9 @@ namespace ItShop.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string description { get; set; }
-        public int ItemId { get; set; }
+		public string Description { get; set; }
+		public int ItemId { get; set; }
+        //public string Picture { get; set; }
 
         //public List<Category> categories { get; set; }
 
@@ -21,5 +23,7 @@ namespace ItShop.Models
 
 
         public List<OrderDetail> OrderDetails { get; set; }
-    }
+	
+	
+	}
 }

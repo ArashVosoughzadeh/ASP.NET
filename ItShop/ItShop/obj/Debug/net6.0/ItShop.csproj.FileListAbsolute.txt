@@ -514,9 +514,9 @@ N:\ASP.Net\ItShop\ItShop\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Tex
 N:\ASP.Net\ItShop\ItShop\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\staticwebassets.build.json
 N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\staticwebassets.development.json
-N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout_Landing.cshtml.rz.scp.css
 N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\scopedcss\bundle\ItShop.styles.css
 N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\scopedcss\projectbundle\ItShop.bundle.scp.css
 N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\ItShop.csproj.CopyComplete
 N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\ItShop.genruntimeconfig.cache
+N:\ASP.Net\ItShop\ItShop\obj\Debug\net6.0\scopedcss\Views\Shared\_PublicLayout.cshtml.rz.scp.css
