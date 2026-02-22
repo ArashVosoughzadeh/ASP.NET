@@ -1,16 +1,17 @@
 using ItShop.Data;
 using ItShop.Data.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(option =>
     {
-        option.LoginPath = "/Account/Login";
-        option.LogoutPath = "/Account/Logout";
+        option.LoginPath = "/login";
+        option.LogoutPath = "/logout";
         option.ExpireTimeSpan = TimeSpan.FromDays(30);
     });
 
@@ -41,15 +42,45 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+app.UseAuthentication();
+
+//app.Map("/Admin", myHandler);
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseRouting();
-
-app.UseAuthentication();
-
+//app.Map("/admin",myhandler);
 app.UseAuthorization();
+
+//app.Use(async (ctx, next) =>
+//{
+//    if (!ctx.User.Identity!.IsAuthenticated)
+//    {
+//        ctx.Response.Redirect("login");
+//    }
+//    else
+//    {
+//        await next();
+//    }
+//});
+//private static void myHandler(IApplicationBuilder app)
+//{
+//    app.Use(async (Convert, next) =>
+//    {
+//        if (!context.User.Identity.IsAuthenticated)
+//        {
+//            context.Response.Redirect("/Accont/login");
+//        }
+//        else
+//        {
+//            await next.Invoke(next);
+//        }
+//    });
+//}
+
+
 
 app.UseEndpoints(endpoints =>
 {
@@ -61,3 +92,5 @@ pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 
 app.Run();
+
+

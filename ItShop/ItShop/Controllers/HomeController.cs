@@ -19,7 +19,7 @@ namespace ItShop.Controllers
             _logger = logger;
             _context = context;
         }
-
+        [Route("/")]
         public IActionResult Index()
         {          
             return View();
@@ -27,8 +27,7 @@ namespace ItShop.Controllers
 
         public IActionResult Detail(int id)
         {
-            var product = _context.products
-                .Include(navigationPropertyPath: p => p.Item)
+            var product = _context.products                
                 .SingleOrDefault(p => p.Id == id);
 
             if (product == null)
@@ -55,7 +54,7 @@ namespace ItShop.Controllers
 
         public IActionResult AddToCard(int itemId)
         {
-            var product = _context.products.Include(navigationPropertyPath: p => p.Item).SingleOrDefault(p => p.ItemId == itemId);
+            var product = _context.products.SingleOrDefault(p => p.Id == itemId);
             if (product != null)
             {
                 int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier).ToString());
@@ -73,7 +72,7 @@ namespace ItShop.Controllers
                         {
                             OrderId = order.OrderId,
                             ProductId = product.Id,
-                            Price = product.Item.price,
+                            Price = product.Price,
                             count = 1
                         });
                     }
@@ -92,7 +91,7 @@ namespace ItShop.Controllers
                     {
                         OrderId = order.OrderId,
                         ProductId = product.Id,
-                        Price = product.Item.price,
+                        Price = product.Price,
                         count = 1,
                         
                     });
@@ -140,5 +139,6 @@ namespace ItShop.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+       
     }
 }

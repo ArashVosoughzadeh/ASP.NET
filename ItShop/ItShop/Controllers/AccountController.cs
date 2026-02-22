@@ -11,18 +11,19 @@ namespace ItShop.Controllers
     public class AccountController : Controller
     {
         private IUserRepository _userRepository;
-       
+
         public AccountController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
+        [Route("register")]
         public IActionResult Register()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public IActionResult Register(RegisterViewModel register)
         {
             if (!ModelState.IsValid)
@@ -41,22 +42,22 @@ namespace ItShop.Controllers
                 Email = register.Email.ToLower(),
                 Password = register.Password,
                 IsAdmin = false,
-                    RegisterDate = DateTime.Now,
+                RegisterDate = DateTime.Now,
             };
 
             _userRepository.AddUser(user);
 
 
             return View("SuccessRegister", register);
-        }     
-      
+        }
 
+        [Route("login")]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("login")]       
         public  IActionResult Login(LoginViewModel login)
         {
             if (!ModelState.IsValid)
@@ -75,7 +76,7 @@ namespace ItShop.Controllers
             {
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Name, user.Email),
-                new Claim(ClaimTypes.Email, user.Email)
+                new Claim("IsAdmin",user.IsAdmin.ToString())
             };
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -90,11 +91,12 @@ namespace ItShop.Controllers
             
             return Redirect("/");
         }
-        
+
+        [Route("logout")]
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return Redirect("/Home/Index/");
+            return Redirect("/");
         }
         
 

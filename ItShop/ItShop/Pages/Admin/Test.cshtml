@@ -1,0 +1,39 @@
+﻿@page
+@model ItShop.Pages.Admin.TestModel
+@{
+}
+<h1>افزودن کالا</h1>
+<hr />
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Product.Name"></label>
+        <input asp-for="Product.Name" class="form-control" />
+        <span asp-validation-for="Product.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product.Description"></label>
+        <textarea asp-for="Product.Description" class="form-control"></textarea>
+        <span asp-validation-for="Product.Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product.Price"></label>
+        <input asp-for="Product.Price" class="form-control" />
+        <span asp-validation-for="Product.Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product.QuantityInStock"></label>
+        <input asp-for="Product.QuantityInStock" class="form-control" />
+        <span asp-validation-for="Product.QuantityInStock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product.Picture"></label>
+        <input asp-for="Product.Picture" type="file" class="form-control" />
+        <span asp-validation-for="Product.Picture" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">ثبت</button>
+</form>

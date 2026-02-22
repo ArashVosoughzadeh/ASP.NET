@@ -9,8 +9,8 @@
     alt="@Model.Product.Name"
     class="img-thumbnail"
     height="320" whith="320"/>
-    <p>@Model.Product.description</p>
-    <p>قیمت :@Model.Product.Item.price</p>
+    <p>@Model.Product.Description</p>
+    <p>قیمت :@Model.Product.Price</p>
     <dl>
         @foreach (var item in Model.Categories)
         {
@@ -22,7 +22,7 @@
         <a class="btn btn-primary"
         asp-asp-controller="Home"
         asp-action="AddToCard"
-        asp-route-itemid="@Model.Product.ItemId">افزودن سبد خرید</a>
+        asp-route-itemid="@Model.Product.Id">افزودن سبد خرید</a>
     </div>
 </div>
 

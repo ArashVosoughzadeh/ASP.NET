@@ -46,64 +46,6 @@ namespace ItShop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "IT group3",
-                            ExtraDescription = "",
-                            Name = "IT group"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "گروه لوازم برقی",
-                            ExtraDescription = "",
-                            Name = "لوازم برقی"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "ذخیره فایل",
-                            ExtraDescription = "",
-                            Name = "فلش"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "لوازم کامپیوتر",
-                            ExtraDescription = "",
-                            Name = "کیبورد"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "لواز کامپیوتر",
-                            ExtraDescription = "",
-                            Name = "موس"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Description = "اوازم کامپیوتر",
-                            ExtraDescription = "",
-                            Name = "کیس"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "انواع هارد ",
-                            ExtraDescription = "",
-                            Name = "هارد"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "انواع لپتاپ",
-                            ExtraDescription = "",
-                            Name = "لپتاپ"
-                        });
                 });
 
             modelBuilder.Entity("ItShop.Models.CtegoryToProduct", b =>
@@ -127,53 +69,6 @@ namespace ItShop.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("CtegoryToProducts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            ProductId = 2
-                        });
-                });
-
-            modelBuilder.Entity("ItShop.Models.Item", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("QuantityInStook")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("price")
-                        .HasColumnType("Money");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("items");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            QuantityInStook = 5,
-                            price = 850.0m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            QuantityInStook = 8,
-                            price = 8040.0m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            QuantityInStook = 3,
-                            price = 905.0m
-                        });
                 });
 
             modelBuilder.Entity("ItShop.Models.Order", b =>
@@ -240,32 +135,21 @@ namespace ItShop.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemId")
-                        .IsUnique();
-
                     b.ToTable("products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 2,
-                            ItemId = 1,
-                            Name = "اموزش پایتون",
-                            description = "اموزش مقدماتی پایتون "
-                        });
                 });
 
             modelBuilder.Entity("ItShop.Models.Users", b =>
@@ -346,26 +230,9 @@ namespace ItShop.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("ItShop.Models.Product", b =>
-                {
-                    b.HasOne("ItShop.Models.Item", "Item")
-                        .WithOne("product")
-                        .HasForeignKey("ItShop.Models.Product", "ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Item");
-                });
-
             modelBuilder.Entity("ItShop.Models.Category", b =>
                 {
                     b.Navigation("CtegoryToProducts");
-                });
-
-            modelBuilder.Entity("ItShop.Models.Item", b =>
-                {
-                    b.Navigation("product")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ItShop.Models.Order", b =>

@@ -3,20 +3,7 @@
 @{
     ViewData["Title"] = "Login";
 }
-  <link rel="stylesheet" href="../../css/app.css">
-  <link rel="stylesheet" href="../../scripts/swiper/swiper-bundle.css">
-  <!-- ==========================  DARK MODE SCRIPT ============================= -->
-  <script type="text/javascript">
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  </script>
+  
 
   <!-- ALL ICONS -->
   <svg class="hidden">
@@ -66,7 +53,7 @@
       </div>
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <p class="mb-2 text-gray-800 dark:text-gray-100 font-DanaMedium text-lg">ورود | ثبت‌نام </p>
-        <form class="space-y-5" action="#" method="POST">
+        <form class="space-y-5" action="login" method="POST">
              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
           <div>
             <label asp-for="Email" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">لطفا شماره موبایل یا
@@ -105,8 +92,4 @@
     </div>
   </section>
 
-  <script src="../../scripts/app.js"></script>
-  @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 

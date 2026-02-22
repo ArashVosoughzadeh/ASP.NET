@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\**" />
+    <Content Remove="Pages\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <None Remove="Pages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\website\node_modules\%40alloc\quick-lru\package.json" />
     <Content Include="wwwroot\website\node_modules\%40isaacs\cliui\LICENSE.txt" />
     <Content Include="wwwroot\website\node_modules\%40isaacs\cliui\package.json" />
@@ -286,10 +293,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Areas\" />
+    <Folder Include="Views\AdminProduct\" />
     <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\NewFolder2\" />
     <Folder Include="wwwroot\Bootstrap\" />
+    <Folder Include="wwwroot\Areas\" />
   </ItemGroup>
 
   <ItemGroup>

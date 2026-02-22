@@ -1,4 +1,5 @@
-﻿
+﻿@using ItShop.ViewComponets
+
 <!doctype html>
 <html lang="en" dir="rtl">
 
@@ -233,13 +234,12 @@
         </symbol>
 
     </svg>
-	<!-- Header -->
-	<partial name="_HeaderPartial" />
-
+	
+    @await Component.InvokeAsync(typeof(HeaderComponent))
 
 
 	@RenderBody()
-
+    
 	<partial name="_FooterPartial" />
 
 	<!-- Overlay -->
